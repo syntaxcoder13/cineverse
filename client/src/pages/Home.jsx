@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { fetchTrending, fetchPopular, fetchTopRated, fetchNowPlaying, fetchIndianMovies, fetchSouthIndianMovies } from '../redux/slices/movieSlice';
 import { getPopularPeople } from '../utils/tmdb';
 import MovieCard from '../components/MovieCard';
+import SkeletonCard from '../components/SkeletonCard';
 import { Play, Info, ChevronLeft, ChevronRight, Star, User, TrendingUp, Users } from 'lucide-react';
 import TrailerModal from '../components/TrailerModal';
 
@@ -49,7 +50,7 @@ const HorizontalRow = ({ title, items, loading, onTrailerClick, icon: Icon, view
                                 <SkeletonCard />
                             </div>
                         ))
-                        : items.map((item) => (
+                        : (items || []).map((item) => (
                             <div className="flex-shrink-0 w-[140px] sm:w-[160px] md:w-[220px]" key={item.id}>
                                 {item.media_type === 'person' || (!item.title && !item.name && item.known_for) ? (
                                     <Link to={`/person/${item.id}`} className="group/actor block">
