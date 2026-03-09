@@ -1,0 +1,13 @@
+{
+    "name": "cineverse-platform",
+    "version": "1.0.0",
+    "description": "Cineverse Full-Stack Deployment",
+    "scripts": {
+        "start": "cd server && npm start",
+        "build": "cd client && npm install && npm run build && cd ../server && npm install",
+        "dev": "cd server && npm run dev"
+    },
+    "engines": {
+        "node": ">=18.0.0"
+    }
+}
