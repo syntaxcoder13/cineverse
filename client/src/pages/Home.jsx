@@ -106,9 +106,9 @@ const Home = () => {
         const fetchPeopleData = async () => {
             try {
                 const data = await getPopularPeople(1);
-                setPeople(data.results.slice(0, 10));
+                setPeople(data?.results?.slice(0, 10) || []);
             } catch (err) {
-                console.error(err);
+                console.error('Failed to fetch people:', err);
             }
         };
         fetchPeopleData();

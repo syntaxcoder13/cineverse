@@ -12,7 +12,7 @@ import Search from './pages/Search';
 import MovieDetail from './pages/MovieDetail';
 import Movies from './pages/Movies';
 import TVShows from './pages/TVShows';
-
+import Trending from './pages/Trending';
 import People from './pages/People';
 import PersonDetail from './pages/PersonDetail';
 import Favorites from './pages/Favorites';
@@ -42,6 +42,7 @@ const AppContent = () => {
         <Route path="/" element={<Home />} />
         <Route path="/movies" element={<Movies />} />
         <Route path="/tv" element={<TVShows />} />
+        <Route path="/trending" element={<Trending />} />
         <Route path="/people" element={<People />} />
         <Route path="/search" element={<Search />} />
         <Route path="/movie/:id" element={<MovieDetail />} />

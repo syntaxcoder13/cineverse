@@ -8,9 +8,6 @@ const Favorites = () => {
     const dispatch = useDispatch();
     const { favorites, loading } = useSelector((state) => state.favorites);
 
-    const [modalOpen, setModalOpen] = useState(false);
-    const [selectedMovie, setSelectedMovie] = useState(null);
-
     useEffect(() => {
         dispatch(fetchFavorites());
         window.scrollTo(0, 0);
@@ -40,7 +37,7 @@ const Favorites = () => {
                     <HeartCrack size={48} className="mx-auto text-gray-600 mb-4" />
                     <h2 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">You haven't added any favorites yet.</h2>
                     <p className="text-gray-600 dark:text-gray-400 mb-6">Discover movies and TV shows to add to your collection!</p>
-                    <Link to="/movies" className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-gray-900 dark:text-white rounded font-medium hover:scale-105 hover:shadow-pink-500/50 transition">
+                    <Link to="/movies" className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded font-medium hover:scale-105 hover:shadow-pink-500/50 transition">
                         Explore Now
                     </Link>
                 </div>
@@ -58,7 +55,7 @@ const Favorites = () => {
                                 <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/80 to-transparent p-3 pt-12 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300 flex flex-col gap-2">
                                     <Link
                                         to={`/movie/${fav.movieId}`}
-                                        className="w-full py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 text-gray-900 dark:text-white text-xs font-bold rounded text-center hover:scale-105 hover:shadow-pink-500/50 block"
+                                        className="w-full py-1.5 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-xs font-bold rounded text-center hover:scale-105 hover:shadow-pink-500/50 block"
                                     >
                                         View Details
                                     </Link>
@@ -71,18 +68,12 @@ const Favorites = () => {
                                 </div>
                             </div>
                             <div className="p-3 absolute top-0 left-0 w-full bg-gradient-to-b from-black/80 to-transparent pointer-events-none">
-                                <h3 className="text-gray-900 dark:text-white font-medium text-sm truncate">{fav.title}</h3>
+                                <h3 className="text-white font-medium text-sm truncate">{fav.title}</h3>
                             </div>
                         </div>
                     ))}
                 </div>
             )}
-
-            <TrailerModal
-                isOpen={modalOpen}
-                onClose={() => setModalOpen(false)}
-                movieId={selectedMovie}
-            />
         </div>
     );
 };
