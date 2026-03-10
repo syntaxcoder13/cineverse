@@ -55,8 +55,4 @@ npm install
 npm run dev     # Starts the Vite dev server
 ```
 
-## Admin User
 
-A seed script (`server/seed.js`) has been provided. By running `node seed.js` in the server directory, a default admin is created:
-**Email:** admin@cineverse.com
-**Password:** Admin@123
